@@ -1,2 +1,2 @@
 # UltrasonicSensor
-Advanced arduino library for HCR-S04 ultrasonic sensors
+Advanced arduino library for HC-SR04 ultrasonic sensors
