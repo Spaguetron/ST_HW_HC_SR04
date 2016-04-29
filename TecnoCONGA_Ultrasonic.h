@@ -35,7 +35,6 @@ class TC_Ultrasonic {
 		float getHitDistance();
 		int getHitTime();
 		
-		
 	private:
 		byte triggerPin;
 		byte echoPin;
