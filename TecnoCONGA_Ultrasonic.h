@@ -28,10 +28,10 @@ class TC_Ultrasonic {
 		TC_Ultrasonic(byte triggerPin, byte echoPin);
 		TC_Ultrasonic(byte triggerPin, byte echoPin, unsigned long timeout);
 		void setTimeout(unsigned long timeout);
-		void setSoundSpeed(float speed);
+		void setSoundPace(float pace);
 		unsigned long getTimeout();                
-		float getSoundSpeed();
-		float calculateSoundSpeed(float distance);
+		float getSoundPace();
+		float calculateSoundPace(float distance);
 		float getHitDistance();
 		int getHitTime();
 		
@@ -39,7 +39,7 @@ class TC_Ultrasonic {
 	private:
 		byte triggerPin;
 		byte echoPin;
-		float soundSpeed;
+		float soundPace;
 		unsigned long timeout;
 		
 		void triggerPulse();

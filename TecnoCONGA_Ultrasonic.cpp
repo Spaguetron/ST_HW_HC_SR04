@@ -23,7 +23,7 @@
 TC_Ultrasonic::TC_Ultrasonic(byte triggerPin, byte echoPin) {
 	this->triggerPin = triggerPin;
 	this->echoPin    = echoPin;
-	this->soundSpeed = 26;
+	this->soundPace  = 26;
 	this->timeout    = 5000;
 	
 	pinMode(triggerPin, OUTPUT);
@@ -33,7 +33,7 @@ TC_Ultrasonic::TC_Ultrasonic(byte triggerPin, byte echoPin) {
 TC_Ultrasonic::TC_Ultrasonic(byte triggerPin, byte echoPin, unsigned long timeout) {
 	this->triggerPin = triggerPin;
 	this->echoPin    = echoPin;
-	this->soundSpeed = 26;
+	this->soundPace  = 26;
 	this->timeout    = timeout;
 	
 	pinMode(triggerPin, OUTPUT);
@@ -52,20 +52,20 @@ unsigned long TC_Ultrasonic::getTimeout() {
 	return this->timeout;
 }
 
-void TC_Ultrasonic::setSoundSpeed(float speed) {
-	if(speed == 0.0) {
-		this->soundSpeed = 26;
+void TC_Ultrasonic::setSoundPace(float pace) {
+	if(pace == 0.0) {
+		this->soundPace = 26;
 		return;
 	}
 	
-	this->soundSpeed = speed;
+	this->soundPace = pace;
 }
 
-float TC_Ultrasonic::getSoundSpeed() {
-	return this->soundSpeed;
+float TC_Ultrasonic::getSoundPace() {
+	return this->soundPace;
 }
 
-float TC_Ultrasonic::calculateSoundSpeed(float distance) {
+float TC_Ultrasonic::calculateSoundPace(float distance) {
 	// Send a 10us pulse to the TRIG pin
 	this->triggerPulse();
 	
@@ -78,11 +78,11 @@ float TC_Ultrasonic::calculateSoundSpeed(float distance) {
 		return 0;
 	}
 	
-	// Finally, calculate the sound hit speed (us/cm)
-	float speed = ((float)pulseDuration) / 2.0 / distance;
+	// Finally, calculate the sound pace to hit (us/cm)
+	float pace = ((float)pulseDuration) / 2.0 / distance;
 	
 	// Return the result
-	return speed;
+	return pace;
 }
 
 float TC_Ultrasonic::getHitDistance() {
@@ -92,7 +92,7 @@ float TC_Ultrasonic::getHitDistance() {
 		return 0;
 	}
 	
-	float distance = hitTime / this->soundSpeed;
+	float distance = hitTime / this->soundPace;
 	
 	return distance;
 }
