@@ -23,7 +23,6 @@
 ST_HW_HC_SR04::ST_HW_HC_SR04(byte triggerPin, byte echoPin) {
     this->triggerPin = triggerPin;
     this->echoPin    = echoPin;
-    this->soundPace  = 26;
     this->timeout    = 5000;
 
     pinMode(triggerPin, OUTPUT);
@@ -33,7 +32,6 @@ ST_HW_HC_SR04::ST_HW_HC_SR04(byte triggerPin, byte echoPin) {
 ST_HW_HC_SR04::ST_HW_HC_SR04(byte triggerPin, byte echoPin, unsigned long timeout) {
     this->triggerPin = triggerPin;
     this->echoPin    = echoPin;
-    this->soundPace  = 26;
     this->timeout    = timeout;
 
     pinMode(triggerPin, OUTPUT);
@@ -50,51 +48,6 @@ void ST_HW_HC_SR04::setTimeout(unsigned long timeout) {
 
 unsigned long ST_HW_HC_SR04::getTimeout() {
     return this->timeout;
-}
-
-void ST_HW_HC_SR04::setSoundPace(float pace) {
-    if(pace == 0.0) {
-        this->soundPace = 26;
-        return;
-    }
-
-    this->soundPace = pace;
-}
-
-float ST_HW_HC_SR04::getSoundPace() {
-    return this->soundPace;
-}
-
-float ST_HW_HC_SR04::calculateSoundPace(float distance) {
-    // Send a 10us pulse to the TRIG pin
-    this->triggerPulse();
-
-    // Calculate the elapsed time for the sound to go and return
-    pinMode(this->echoPin, INPUT);
-    int pulseDuration = (int)pulseIn(this->echoPin, HIGH, this->timeout);
-
-    // If the pulse duration is 0, timeout happened
-    if(pulseDuration == 0) {
-        return 0;
-    }
-
-    // Finally, calculate the sound pace to hit (us/cm)
-    float pace = ((float)pulseDuration) / 2.0 / distance;
-
-    // Return the result
-    return pace;
-}
-
-float ST_HW_HC_SR04::getHitDistance() {
-    int hitTime = this->getHitTime();
-
-    if(hitTime == 0) {
-        return 0;
-    }
-
-    float distance = hitTime / this->soundPace;
-
-    return distance;
 }
 
 int ST_HW_HC_SR04::getHitTime() {
@@ -116,6 +69,7 @@ int ST_HW_HC_SR04::getHitTime() {
     // Return the result
     return timeToHit;
 }
+
 void ST_HW_HC_SR04::triggerPulse() {
     // Make sure the pin is in output mode
     pinMode(this->triggerPin, OUTPUT);

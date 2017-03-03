@@ -28,17 +28,12 @@ class ST_HW_HC_SR04 {
         ST_HW_HC_SR04(byte triggerPin, byte echoPin);
         ST_HW_HC_SR04(byte triggerPin, byte echoPin, unsigned long timeout);
         void setTimeout(unsigned long timeout);
-        void setSoundPace(float pace);
         unsigned long getTimeout();
-        float getSoundPace();
-        float calculateSoundPace(float distance);
-        float getHitDistance();
         int getHitTime();
 
     private:
         byte triggerPin;
         byte echoPin;
-        float soundPace;
         unsigned long timeout;
 
         void triggerPulse();
