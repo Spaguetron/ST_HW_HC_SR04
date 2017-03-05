@@ -18,8 +18,8 @@
 #
 */
 
-#ifndef ST_HW_HC_SR04
-#define ST_HW_HC_SR04
+#ifndef ST_HW_HC_SR04_H
+#define ST_HW_HC_SR04_H
 
 #include "Arduino.h"
 
