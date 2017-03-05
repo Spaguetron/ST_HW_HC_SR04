@@ -28,6 +28,7 @@ class ST_HW_HC_SR04 {
         ST_HW_HC_SR04(byte triggerPin, byte echoPin);
         ST_HW_HC_SR04(byte triggerPin, byte echoPin, unsigned long timeout);
         void setTimeout(unsigned long timeout);
+        void setTimeoutToDefaultValue();
         unsigned long getTimeout();
         int getHitTime();
 

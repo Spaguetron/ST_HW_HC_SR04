@@ -39,11 +39,11 @@ ST_HW_HC_SR04::ST_HW_HC_SR04(byte triggerPin, byte echoPin, unsigned long timeou
 }
 
 void ST_HW_HC_SR04::setTimeout(unsigned long timeout) {
-    if(timeout == 0) {
-        this->timeout = 5000;
-    }
-
     this->timeout = timeout;
+}
+
+void ST_HW_HC_SR04::setTimeoutToDefaultValue() {
+    this->timeout = 5000;
 }
 
 unsigned long ST_HW_HC_SR04::getTimeout() {
