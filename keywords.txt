@@ -1,0 +1,13 @@
+# keywords.txt file for the ST_HW_HC_SR04 library (v2.0)
+
+# KEYWORD1 (Datatypes)
+ST_HW_HC_SR04	KEYWORD1
+
+# KEYWORD2 (Methods/Functions)
+setTimeout	KEYWORD2
+setTimeoutToDefaultValue	KEYWORD2
+getTimeout	KEYWORD2
+getHitTime	KEYWORD2
+
+# LITERAL1 (Constants)
+# (none)
