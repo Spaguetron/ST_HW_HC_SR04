@@ -41,10 +41,9 @@ void loop() {
             return; // Restart the loop
         }
 
-        Serial.println("Timeout happening even with 250ms timeout, check your \
-                        sensor!");
+        Serial.println("Timeout happening even with 250ms timeout, check your "
+                       "sensor!");
     }
-
 
     String message = "The hit time was " + String(hitTime) + " microseconds";
     Serial.println(message);
