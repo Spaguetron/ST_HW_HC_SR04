@@ -28,20 +28,24 @@ void loop() {
     #   That usually happens when the distance between the sensor and the block-
     # ing object is greater than 40 centimeters (15.75 inches).
     #
-    #   Increasing the timeout from 5000 microseconds to 250000 microseconds
-    # should be more than enough, at the cost of the code being stuck for 250ms
-    # if no packet is received during this peiod (worst case scenario).
+    #   Increasing the timeout from 5000 microseconds to 50000 microseconds
+    # will increase the maximum distance to ~4m, at the cost of the code being
+    # stuck for 50ms if no packet is received during this period (worst case
+    # scenario).
+    #
+    #   More information (including calculations) is included in the
+    # extras/HC-SR04.txt file. (Inside your libraries/ST_HW_HC_SR04 folder)
     #
     */
     if(hitTime == 0) {
-        if(ultrasonicSensor.getHitTime() == 5000) {
+        if(ultrasonicSensor.getHitTime() == 5000) { // This is the default value
             Serial.println("Timeout happened, retrying with a greater timeout");
-            ultrasonicSensor.setTimeout(2500000);
+            ultrasonicSensor.setTimeout(50000);
 
             return; // Restart the loop
         }
 
-        Serial.println("Timeout happening even with 250ms timeout, check your "
+        Serial.println("Timeout happening even with 50ms timeout, check your "
                        "sensor!");
     }
 
