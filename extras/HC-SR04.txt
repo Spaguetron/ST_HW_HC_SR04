@@ -15,7 +15,7 @@ Approximate distance formulas:
  * hitTime / 58  = distance [centimeters]
  * hitTime / 148 = distance [inches]
 
-Apprimate maximum timeout based on desired maximum distance formulas:
+Approximate maximum timeout based on desired maximum distance formulas:
  * maxTimeout = (desiredDistance[cm] * 58 * 2)  [microseconds]
  * maxTimeout = (desiredDistance[in] * 148 * 2) [microseconds]
 
