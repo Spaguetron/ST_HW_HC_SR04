@@ -1,0 +1,40 @@
+  The HC-SR04 ultrasonic sensor works by sending 8 40kHz pulses when triggered
+and measuring the time those pulses took to go and return. If it ever receives
+back the packets, then it sets the ECHO pin to HIGH for the same duration it
+waited for the packets to go and return.
+
+  For this reason, setting an timeout is very important. Otherwise, the default
+timeout for the Aruino pulseIn function may leave all code blocked for up to
+one second. The default timeout for the ST_HW_HC_SR04 library is 5000
+microseconds, which should be enough for approximately 40 cm (15.75 in).
+
+  The trigger pulse needs to be set to HIGH for at least 10 microseconds to
+activate the pulses and then deactivated.
+
+Approximate distance formulas:
+ * hitTime / 58  = distance [centimeters]
+ * hitTime / 148 = distance [inches]
+
+Approximate maximum timeout based on desired maximum distance formulas:
+ * maxTimeout = (desiredDistance[cm] * 58 * 2)  [microseconds]
+ * maxTimeout = (desiredDistance[in] * 148 * 2) [microseconds]
+
+
+ASCII drawing:
+#--------#
+|T()  ()R|
+#--------#
+|  |  |  |
+1  2  3  4
+
+1- VCC  (+5V)
+2- TRIG (Trigger pin)
+3- ECHO (Echo ping)
+4- GND  (-0V / Ground)
+
+T() - Transmitter
+()R - Receiver
+
+Sources:
+ * http://www.micropik.com/PDF/HCSR04.pdf
+ * http://randomnerdtutorials.com/complete-guide-for-ultrasonic-sensor-hc-sr04/
