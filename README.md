@@ -22,10 +22,10 @@ receive back the packets it sent before the timeout value.
   The default timeout value is `5000` microseconds, which sould be enough for approximately
 *43 centimeters* ([5000  / 2 / 58] ~= 43.1).
 
-  Although I dind't confirm, it's stated in [this datasheet](http://www.micropik.com/PDF/HCSR04.pdf)
+  Although I didn't confirm, it is stated in [this datasheet](http://www.micropik.com/PDF/HCSR04.pdf)
 ([alternate link](https://cdn.sparkfun.com/datasheets/Sensors/Proximity/HCSR04.pdf)) that max. range
 of this sensor is 4 meters (400cm). As so, setting the timeout value to 46400 microseconds (46.4 ms)
-should be enough for all common use cases of this sensor.
+should be enough for all cases where the object distance is less or equal to 4 meters.
 
 The timeout-related methods of this library are:
 ```arduino
@@ -39,4 +39,4 @@ unsigned long currentTimeout = ultrasonicSensor.getTimeout();
 
 ## Extra information
   Information about how the ultrasonic sensor works is present in the
-`extras/HC-SR04.txt` file
+`extras/HC-SR04.txt` file.
