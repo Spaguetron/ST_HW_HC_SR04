@@ -12,7 +12,7 @@ ST_HW_HC_SR04 ultrasonicSensor(13, 12); // ST_HW_HC_SR04(TRIG, ECHO)
 int hitTime = ultrasonicSensor.getHitTime();
 
 // Calculate the approximate distance in centimeters (as seen in extras/HC-SR04.txt)
-int distanceInCm = hitTIme / 58;
+int distanceInCm = hitTime / 58;
 ```
 
   The `getHitTime` function will return `0` if the ultrasonic sensor doesn't
