@@ -1,0 +1,24 @@
+2.0.2 (07 May 2017):
+ * Fix and improve the GetHitTime example
+    * Wait for Serial connection to be established
+    * Update comments to match the timeout values of 2.0.1
+    * Fix a small semantic mistake (i.e. → e.g.)
+    * Fix the condition to update the timeout value (previously, it would never work)
+    * Make the logic easier to understand
+
+2.0.1 (07 May 2017):
+ * Make corrections to the "hitTime→distance" formulas
+
+2.0.0 (13 Mar 2017):
+ * Rename project from TC_Ultrasonic to ST_HW_HC_SR04
+ * Remove everything related to speed and distance
+ * Allow timeout value to be "0"
+    * The timeout reset feature was moved to the setTimeoutToDefaultValue() function.
+ * Add GetHitTime example
+ * Add the extras/HC-SR04.txt file for extra information
+ * Decrease the default timeout value (now it is 5000 microseconds)
+ * Change the license from Apache v2 to MIT
+ * Add library to the Arduino IDE list of libraries (#6066)
+
+1.0.0 (29 Apr 2016):
+ * Initial version
