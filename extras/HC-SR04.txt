@@ -6,21 +6,25 @@ waited for the packets to go and return.
   For this reason, setting an timeout is very important. Otherwise, the default
 timeout for the Aruino pulseIn function may leave all code blocked for up to
 one second. The default timeout for the ST_HW_HC_SR04 library is 5000
-microseconds, which should be enough for approximately 40 cm (15.75 in).
+microseconds, which should be enough for approximately 86 cm (33.85 in).
 
-  The trigger pulse needs to be set to HIGH for at least 10 microseconds to
-activate the pulses and then deactivated.
+  To make the sensor send the pulses, the TRIG pin needs to be set to
+HIGH for at least 10 microseconds and then be immediately deactivated.
 
 Approximate distance formulas:
- * hitTime / 58  = distance [centimeters]
- * hitTime / 148 = distance [inches]
+ * hitTime / 29 = distance [centimeters]
+ * hitTime / 74 = distance [inches]
+
+A bit more accurate distance formulas:
+ * hitTime / 29.10 = distance [centimeters]
+ * hitTime / 74.75 = distance [inches]
 
 Approximate maximum timeout based on desired maximum distance formulas:
- * maxTimeout = (desiredDistance[cm] * 58 * 2)  [microseconds]
- * maxTimeout = (desiredDistance[in] * 148 * 2) [microseconds]
+ * maxTimeout = (desiredDistance[cm] * 58)  [microseconds]
+ * maxTimeout = (desiredDistance[in] * 148) [microseconds]
 
 
-ASCII drawing:
+ASCII drawing: (frontal view)
 #--------#
 |T()  ()R|
 #--------#
